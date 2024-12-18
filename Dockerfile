@@ -1,7 +1,8 @@
 FROM nginx:alpine
 
 # 将容器ID写入文件
-RUN echo "$(cat /proc/self/cgroup | head -n 1 | cut -d '/' -f3)" > /usr/share/nginx/html/container-id.txt
+# RUN echo "$(cat /proc/self/cgroup | head -n 1 | cut -d '/' -f3)" > /usr/share/nginx/html/container-id.txt
+RUN echo "$(date)" > /usr/share/nginx/html/container-id.txt
 
 # 添加自定义nginx配置
 COPY nginx.conf /etc/nginx/nginx.conf
