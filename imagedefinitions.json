@@ -1,6 +1,6 @@
 [
     {
         "name": "nginx_samhoo",
-        "imageUri": "573216358767.dkr.ecr.us-east-2.amazonaws.com/nginx_samhoo:latest"
+        "imageUri": "573216358767.dkr.ecr.us-east-2.amazonaws.com/nginx_samhoo:1218a"
     }
 ]
