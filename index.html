@@ -17,17 +17,36 @@
     </div>
 
     <script>
-        // Display hostname at bottom left
-        const hostnameDisplay = document.createElement('div');
-        hostnameDisplay.className = 'fixed bottom-4 left-4 text-sm text-gray-500';
-        hostnameDisplay.textContent = `Hostname: ${window.location.hostname}`;
-        document.body.appendChild(hostnameDisplay);
+        // Function to get Docker container ID
+        async function getContainerId() {
+            try {
+                const response = await fetch('/container-id');
+                const containerId = await response.text();
+                return containerId.trim();
+            } catch (error) {
+                return 'Unknown';
+            }
+        }
+
+        // Display hostname and container ID at bottom left
+        async function displayServerInfo() {
+            const hostnameDisplay = document.createElement('div');
+            hostnameDisplay.className = 'fixed bottom-4 left-4 text-sm text-gray-500';
+            
+            const containerId = await getContainerId();
+            hostnameDisplay.textContent = `Hostname: ${window.location.hostname} | Container ID: ${containerId}`;
+            
+            document.body.appendChild(hostnameDisplay);
+        }
 
         // Display version at bottom right
         const versionDisplay = document.createElement('div');
         versionDisplay.className = 'fixed bottom-4 right-4 text-sm text-gray-500';
-        versionDisplay.textContent = 'v1.1.0';
+        versionDisplay.textContent = 'v1.2.0';
         document.body.appendChild(versionDisplay);
+
+        // Call the async function
+        displayServerInfo();
     </script>
 </body>
 </html>
