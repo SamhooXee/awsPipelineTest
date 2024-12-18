@@ -7,16 +7,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div class="text-center bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+    <div class="text-center bg-white p-8 rounded-lg shadow-xl w-full max-w-md relative">
         <div class="mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Nginx Server</h1>
         </div>
         <div class="my-8">
             <p class="text-2xl font-semibold text-blue-600">Greetings from Samhoo</p>
         </div>
-        <div class="text-sm text-gray-500 absolute bottom-4 right-4">
-            v1.0.0
-        </div>
     </div>
+
+    <script>
+        // Display hostname at bottom left
+        const hostnameDisplay = document.createElement('div');
+        hostnameDisplay.className = 'fixed bottom-4 left-4 text-sm text-gray-500';
+        hostnameDisplay.textContent = `Hostname: ${window.location.hostname}`;
+        document.body.appendChild(hostnameDisplay);
+
+        // Display version at bottom right
+        const versionDisplay = document.createElement('div');
+        versionDisplay.className = 'fixed bottom-4 right-4 text-sm text-gray-500';
+        versionDisplay.textContent = 'v1.1.0';
+        document.body.appendChild(versionDisplay);
+    </script>
 </body>
 </html>
