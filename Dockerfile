@@ -13,12 +13,13 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/index.html
 
 # 将启动脚本复制到镜像中
-COPY start.sh /usr/local/bin/start.sh
+# COPY start.sh /usr/local/bin/start.sh
 
 # 给予执行权限
-RUN chmod +x /usr/local/bin/start.sh
+# RUN chmod +x /usr/local/bin/start.sh
 
 EXPOSE 80
 
 # CMD ["nginx", "-g", "daemon off;"]
-CMD ["/usr/local/bin/start.sh"]
+# CMD ["/usr/local/bin/start.sh"]
+CMD sh -c "date > /usr/share/nginx/html/container-id.txt && nginx -g 'daemon off;'"
