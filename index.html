@@ -34,7 +34,7 @@
             hostnameDisplay.className = 'fixed bottom-4 left-4 text-sm text-gray-500';
             
             const containerId = await getContainerId();
-            hostnameDisplay.textContent = `Hostname: ${window.location.hostname} | Container ID: ${containerId}`;
+            hostnameDisplay.textContent = `Hostname: ${window.location.hostname} | Launch time: ${containerId}`;
             
             document.body.appendChild(hostnameDisplay);
         }
@@ -42,7 +42,7 @@
         // Display version at bottom right
         const versionDisplay = document.createElement('div');
         versionDisplay.className = 'fixed bottom-4 right-4 text-sm text-gray-500';
-        versionDisplay.textContent = 'v1.2.0';
+        versionDisplay.textContent = 'v1.2.1';
         document.body.appendChild(versionDisplay);
 
         // Call the async function
