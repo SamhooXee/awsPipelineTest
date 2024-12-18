@@ -7,7 +7,7 @@ RUN echo "$(cat /proc/self/cgroup | head -n 1 | cut -d '/' -f3)" > /usr/share/ng
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # 添加自定义location来返回容器ID
-RUN echo "location = /container-id { alias /usr/share/nginx/html/container-id.txt; }" >> /etc/nginx/nginx.conf
+# RUN echo "location = /container-id { alias /usr/share/nginx/html/container-id.txt; }" >> /etc/nginx/nginx.conf
 
 COPY index.html /usr/share/nginx/html/index.html
 
